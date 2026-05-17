@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Element Zapper",
+  "version": "0.1.0",
+  "description": "Hotkey-toggled element zapper. Right-click to delete the hovered element.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "toggle-zap": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Command+N"
+      },
+      "description": "Toggle element zapper"
+    }
+  }
+}
